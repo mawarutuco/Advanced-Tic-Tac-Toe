@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyBtn from "./components/Btn";
+import Home from "./pages/Home";
+import AliasGame from "./pages/alias-game";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
+  // const navigate = useNavigate();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/alias-game" element={<AliasGame />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
