@@ -3,11 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyBtn from "./components/Btn";
 import Home from "./pages/Home";
 import AliasGame from "./pages/alias-game";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  // const navigate = useNavigate();
-
   return (
     <BrowserRouter>
       <Routes>
