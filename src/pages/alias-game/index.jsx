@@ -3,7 +3,7 @@ import words from "./words";
 import swalWithBootstrapButtons from "../../components/Alert";
 import MyBtn from "../../components/Btn";
 import Timer from "./Timer";
-import Buttons from "./Buttons";
+import GameBtns from "./GameBtns";
 
 let wordsLen = words.length;
 let timer = null;
@@ -68,7 +68,7 @@ const AliasGame = () => {
         disabled={isPlaying}
       />
 
-      <Buttons
+      <GameBtns
         wordsLen={wordsLen}
         word={word}
         words={words}
