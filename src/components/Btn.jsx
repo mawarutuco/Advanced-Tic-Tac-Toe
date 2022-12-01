@@ -1,13 +1,9 @@
 import { Button } from "react-bootstrap";
 
-const MyBtn = ({ text, doClick, btnClass = "", isDisabled = false }) => {
+const MyBtn = ({ text, textClass, onClick, btnClass, disabled = false }) => {
   return (
-    <Button
-      disabled={isDisabled}
-      className={"btn btn-primary " + btnClass}
-      onClick={doClick}
-    >
-      {text}
+    <Button disabled={disabled} className={btnClass} onClick={onClick}>
+      <span className={textClass}>{text}</span>
     </Button>
   );
 };
