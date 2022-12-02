@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import words from "./words";
-import swalWithBootstrapButtons from "../../components/Alert";
+import MyAlert from "../../components/Alert";
 import MyBtn from "../../components/Btn";
 import Timer from "./Timer";
 import GameBtns from "./GameBtns";
@@ -34,7 +34,7 @@ const AliasGame = () => {
   useEffect(() => {
     if (!isPlaying) settingSec.current = sec;
     else if (sec <= 0) {
-      swalWithBootstrapButtons.fire(
+      MyAlert.fire(
         "時間到啦",
         `共得 ${point.current} 分`,
         "warning"
@@ -55,19 +55,18 @@ const AliasGame = () => {
         setSec={setSec}
         timer={timer}
       />
-      <div className="border shadow word text-center text-wrap">{word}</div>
+      <div className="border shadow my_fs_200 my_lh_8 text-center text-wrap">{word}</div>
       <MyBtn
         text={`分數：${point.current}`}
-        className="btn-light btn-lg"
+        btnClass="btn-light btn-lg"
         onClick={() => {
-          swalWithBootstrapButtons.fire(
+          MyAlert.fire(
             "上局已猜過單字：",
             `${pointWords.current.join("\n")}`
           );
         }}
         disabled={isPlaying}
       />
-
       <GameBtns
         wordsLen={wordsLen}
         word={word}
