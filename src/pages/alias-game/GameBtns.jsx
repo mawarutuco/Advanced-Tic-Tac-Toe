@@ -42,17 +42,28 @@ const Buttons = ({
   return (
     <div>
       {isPlaying ? (
-        <div className="d-flex justify-content-between my_show_move_up">
+        <div className="d-flex justify-content-between">
           <MyBtn
             text="棄牌"
-            className="btn-danger w-100 my_click_btn my_click_btn my_lh_6 my_fs_200"
+            textClass="my_lh_6 my_fs_200"
+            btnClass="w-100 my_click_btn btn-danger"
             onClick={giveUpCard}
             disabled={isGiveUp}
           />
-          <MyBtn text="下張" className="w-100 my_click_btn my_lh_6 my_fs_200"  onClick={nextCard} />
+          <MyBtn
+            text="下張"
+            textClass="my_lh_6 my_fs_200"
+            btnClass="w-100 my_click_btn"
+            onClick={nextCard}
+          />
         </div>
       ) : (
-        <MyBtn text="開始" className="w-100 my_click_btn my_lh_6 my_fs_200" onClick={startGame} />
+        <MyBtn
+          text="開始"
+          textClass="my_lh_6 my_fs_200"
+          btnClass="w-100 my_click_btn"
+          onClick={startGame}
+        />
       )}
     </div>
   );
