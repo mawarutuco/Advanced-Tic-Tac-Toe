@@ -1,7 +1,9 @@
 import swalWithBootstrapButtons from "../../components/Alert";
 import MyBtn from "../../components/Btn";
 import MyInputGroup from "../../components/InputGroup";
+import HomeBtn from "../../components/HomeBtn";
 import { useNavigate } from "react-router-dom";
+import { GiPauseButton } from "react-icons/gi";
 import { AiFillHome } from "react-icons/ai";
 
 const Timer = ({
@@ -33,11 +35,11 @@ const Timer = ({
   const navigate = useNavigate();
 
   return (
-    <div className="timer mt-3">
+    <div className="mt-3">
       {isPlaying ? (
         <div className="d-flex justify-content-between">
           <div
-            className="bg-primary text-light ps-1"
+            className="bg-primary text-light ps-1 fs-3"
             style={{
               width: timePercent + "%",
               borderRadius: "10px",
@@ -45,7 +47,11 @@ const Timer = ({
           >
             {sec}
           </div>
-          <MyBtn className="btn-secondary" text="暫停" onClick={stopGame} />
+          <MyBtn
+            btnClass="btn-secondary"
+            text={<GiPauseButton />}
+            onClick={stopGame}
+          />
         </div>
       ) : (
         <MyInputGroup
@@ -53,8 +59,7 @@ const Timer = ({
           onChange={(e) => setSec(e.target.value)}
           frontText="倒數計時"
           behindText="秒鐘"
-          btnText={<AiFillHome />}
-          btnClick={() => navigate(-1)}
+          btnComponent={<HomeBtn />}
         />
       )}
     </div>
