@@ -1,4 +1,5 @@
 import MyBtn from "../../components/Btn";
+import {ButtonGroup} from 'react-bootstrap'
 
 const Buttons = ({
   word,
@@ -42,7 +43,7 @@ const Buttons = ({
   return (
     <div>
       {isPlaying ? (
-        <div className="d-flex justify-content-between">
+        <ButtonGroup className="d-flex justify-content-between">
           <MyBtn
             text="棄牌"
             textClass="my_lh_6 my_fs_200"
@@ -56,7 +57,7 @@ const Buttons = ({
             btnClass="w-100 my_click_btn"
             onClick={nextCard}
           />
-        </div>
+        </ButtonGroup>
       ) : (
         <MyBtn
           text="開始"
