@@ -4,6 +4,15 @@
   font-size: 200%;
 }
 
+.my_fs_300{
+  font-size: 300%;
+}
+
+.my_fs_400{
+  font-size: 400%;
+}
+
+
 .my_lh_8{
   line-height: 8;
 }
