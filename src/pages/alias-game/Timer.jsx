@@ -50,7 +50,7 @@ const Timer = ({
           <MyBtn
             btnClass="btn-secondary"
             text={<GiPauseButton />}
-            onClick={stopGame}
+            doClick={stopGame}
           />
         </div>
       ) : (

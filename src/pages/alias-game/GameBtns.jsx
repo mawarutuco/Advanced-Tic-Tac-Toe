@@ -48,14 +48,14 @@ const Buttons = ({
             text="棄牌"
             textClass="my_lh_6 my_fs_200"
             btnClass="w-100 my_click_btn btn-danger"
-            onClick={giveUpCard}
+            doClick={giveUpCard}
             disabled={isGiveUp}
           />
           <MyBtn
             text="下張"
             textClass="my_lh_6 my_fs_200"
             btnClass="w-100 my_click_btn"
-            onClick={nextCard}
+            doClick={nextCard}
           />
         </ButtonGroup>
       ) : (
@@ -63,7 +63,7 @@ const Buttons = ({
           text="開始"
           textClass="my_lh_6 my_fs_200"
           btnClass="w-100 my_click_btn"
-          onClick={startGame}
+          doClick={startGame}
         />
       )}
     </div>

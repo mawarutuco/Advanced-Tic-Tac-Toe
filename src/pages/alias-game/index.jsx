@@ -59,7 +59,7 @@ const AliasGame = () => {
       <MyBtn
         text={`分數：${point.current}`}
         btnClass="btn-light btn-lg"
-        onClick={() => {
+        doClick={() => {
           MyAlert.fire(
             "上局已猜過單字：",
             `${pointWords.current.join("\n")}`
