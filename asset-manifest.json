@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tabletop-game/static/css/main.747f1264.css",
+    "main.js": "/tabletop-game/static/js/main.02ca340b.js",
+    "static/js/787.6a541d2d.chunk.js": "/tabletop-game/static/js/787.6a541d2d.chunk.js",
+    "index.html": "/tabletop-game/index.html",
+    "main.747f1264.css.map": "/tabletop-game/static/css/main.747f1264.css.map",
+    "main.02ca340b.js.map": "/tabletop-game/static/js/main.02ca340b.js.map",
+    "787.6a541d2d.chunk.js.map": "/tabletop-game/static/js/787.6a541d2d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.747f1264.css",
+    "static/js/main.02ca340b.js"
+  ]
+}
