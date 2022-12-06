@@ -1,23 +1,33 @@
+.my_rotate_180 {
+  rotate: 180deg;
+}
 
+.my_w_100px {
+  width: 100px;
+}
 
-.my_fs_200{
+.my_h_100px {
+  height: 100px;
+}
+
+.my_fs_200 {
   font-size: 200%;
 }
 
-.my_fs_300{
+.my_fs_300 {
   font-size: 300%;
 }
 
-.my_fs_400{
+.my_fs_400 {
   font-size: 400%;
 }
 
 
-.my_lh_8{
+.my_lh_8 {
   line-height: 8;
 }
 
-.my_lh_6{
+.my_lh_6 {
   line-height: 6;
 }
 
@@ -29,13 +39,16 @@
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(10px);
   }
+
   100% {
     transform: translateY(0px);
   }
 }
+
 .my_show_move_up {
   animation: move_up 0.8s;
 }
