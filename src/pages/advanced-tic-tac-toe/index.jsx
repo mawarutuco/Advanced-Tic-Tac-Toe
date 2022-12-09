@@ -1,7 +1,7 @@
 import HomeBtn from "../../components/HomeBtn";
 import GameBtns from "./GameBtns";
 import Stage from "./Stage";
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 const AdvancedTicTacToe = () => {
   let initArr = [];
@@ -9,7 +9,7 @@ const AdvancedTicTacToe = () => {
   initArr.fill({ text: "", textClass: "", disabled: false });
 
   const [stage, setStage] = useState(initArr);
-  const [piece, setPiece] = useState("");
+  const piece = useRef("");
   const [turn, setTurn] = useState(true);
   return (
     <div className="container d-flex flex-column justify-content-between align-items-center mt-1">
@@ -18,7 +18,7 @@ const AdvancedTicTacToe = () => {
       </div>
       <GameBtns
         turn={!turn}
-        setPiece={setPiece}
+        piece={piece}
         stage={stage}
         setStage={setStage}
       />
@@ -30,7 +30,7 @@ const AdvancedTicTacToe = () => {
       />
       <GameBtns
         turn={turn}
-        setPiece={setPiece}
+        piece={piece}
         stage={stage}
         setStage={setStage}
         btnClass="btn-warning"
