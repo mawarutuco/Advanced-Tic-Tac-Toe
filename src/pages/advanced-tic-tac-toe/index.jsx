@@ -21,6 +21,7 @@ const AdvancedTicTacToe = () => {
         piece={piece}
         stage={stage}
         setStage={setStage}
+        textClass="text-primary"
       />
       <Stage
         piece={piece}
@@ -34,6 +35,7 @@ const AdvancedTicTacToe = () => {
         stage={stage}
         setStage={setStage}
         btnClass="btn-warning"
+        textClass="text-warning"
       />
     </div>
   );
