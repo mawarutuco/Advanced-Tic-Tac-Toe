@@ -12,6 +12,9 @@ const AdvancedTicTacToe = ({ stage, setStage, piece, setTurn }) => {
       textClass: piece.current,
       disabled: true,
     };
+    // let newArr = [...stage]
+    // newArr[id] = {state:piece.current,color:""}  //用turn下顏色
+    //  piece.current=-1
     setTurn((pre) => !pre);
     setStage(newArr);
   };
@@ -24,6 +27,9 @@ const AdvancedTicTacToe = ({ stage, setStage, piece, setTurn }) => {
             text={item.text}
             textClass={item.textClass}
             disabled={item.disabled}
+            // text={<FiCircle />}
+            // textClass={()=>judgeTextClass(item.state,item.color)}
+            // disabled={piece.current>item.state?true:false}
             btnClass="my_w_100px my_h_100px bg-white"
             key={idx}
             doClick={() => changeStage(idx)}

@@ -11,9 +11,15 @@ const AdvancedTicTacToe = ({
   textClass,
 }) => {
   const gameBtnsArr = ["", "my_fs_200", "my_fs_300"];
+  // const gameBtnsArr = [{state:1,qty:3},{state:2,qty:3},{state:3,qty:3}];
+  
   const selectPiece = (item) => {
     judgeStage(item);
     piece.current = `${item} ${textClass}`;
+    
+    //const {state} = item
+    // judgeStage(state);
+    // piece.current = state;
   };
   const judgeStage = (item) => {
     let newStage = [];
@@ -49,6 +55,8 @@ const AdvancedTicTacToe = ({
           textClass={item}
           btnClass={btnClass}
           disabled={turn}
+          // textClass={item.state>2?"my_fs_300":(item.state>1?"my_fs_200":"")}
+          // disabled={turn&&!item.qty}
         />
       ))}
     </ButtonGroup>
