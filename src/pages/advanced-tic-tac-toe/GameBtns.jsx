@@ -16,13 +16,23 @@ const AdvancedTicTacToe = ({
     piece.current = `${item} ${textClass}`;
   };
   const judgeStage = (item) => {
-    let newStage = stage.map((n) => {
-      n.disabled = false;
-      return n;
-    });
-    // if (item === "my_fs_300") console.log(newStage);
-    // else if (item === "my_fs_200") console.log(newStage);
-    // else console.log(newStage);
+    let newStage = [];
+    if (item === "my_fs_300") {
+      newStage = stage.map((n) => {
+        if (n.textClass.indexOf(item) < 0) n.disabled = false;
+        return n;
+      });
+    } else if (item === "my_fs_200") {
+      newStage = stage.map((n) => {
+        if (n.textClass.indexOf(item) < 0) n.disabled = false;
+        return n;
+      });
+    } else {
+      newStage = stage.map((n) => {
+        if (n.text === "") n.disabled = false;
+        return n;
+      });
+    }
     console.log(newStage);
     setStage(newStage);
   };
