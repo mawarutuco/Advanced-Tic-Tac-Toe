@@ -4,7 +4,7 @@ import { FiCircle } from "react-icons/fi";
 const AdvancedTicTacToe = ({ stage, setStage, piece, setTurn }) => {
   const changeStage = (id) => {
     let newArr = [...stage];
-    newArr[id] = { text: <FiCircle />, textClass: piece.current, disabled: false };
+    newArr[id] = { text: <FiCircle />, textClass: piece.current, disabled: true };
     setTurn((pre) => !pre);
     setStage(newArr);
   };
