@@ -1,11 +1,9 @@
-import { useState, useEffect, useRef } from "react";
-import MyAlert from "../../components/Alert";
-import MyBtn from "../../components/Btn";
+
 import HomeBtn from "../../components/HomeBtn";
 import GameBtns from "./GameBtns";
 import Stage from "./Stage";
 
-const OOXX = () => {
+const AdvancedTicTacToe = () => {
   return (
     <div className="container d-flex flex-column justify-content-between align-items-center mt-1">
       <div className="position-fixed fixed-top">
@@ -18,4 +16,4 @@ const OOXX = () => {
   );
 };
 
-export default OOXX;
+export default AdvancedTicTacToe;

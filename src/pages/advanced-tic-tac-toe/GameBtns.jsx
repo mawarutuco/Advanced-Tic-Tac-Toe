@@ -2,7 +2,7 @@ import MyBtn from "../../components/Btn";
 import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
 
-const OOXX = ({ btnClass }) => {
+const AdvancedTicTacToe = ({ btnClass }) => {
   return (
     <ButtonGroup className="w-100">
       <MyBtn text={<FiCircle />} textClass="my_fs_200" btnClass={btnClass} />
@@ -12,4 +12,4 @@ const OOXX = ({ btnClass }) => {
   );
 };
 
-export default OOXX;
+export default AdvancedTicTacToe;

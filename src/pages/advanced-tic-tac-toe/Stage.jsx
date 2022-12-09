@@ -3,7 +3,7 @@ import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
 import { useState } from "react";
 
-const OOXX = () => {
+const AdvancedTicTacToe = () => {
   const arr = [];
   arr.length = 9;
   arr.fill("");
@@ -28,4 +28,4 @@ const OOXX = () => {
   );
 };
 
-export default OOXX;
+export default AdvancedTicTacToe;
