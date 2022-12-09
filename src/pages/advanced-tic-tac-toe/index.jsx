@@ -6,7 +6,7 @@ import { useState,useRef } from "react";
 const AdvancedTicTacToe = () => {
   let initArr = [];
   initArr.length = 9;
-  initArr.fill({ text: "", textClass: "", disabled: false });
+  initArr.fill({ text: "", textClass: "", disabled: true });
 
   const [stage, setStage] = useState(initArr);
   const piece = useRef("");
