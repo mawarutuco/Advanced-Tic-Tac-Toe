@@ -1,25 +1,25 @@
 import MyBtn from "../../components/Btn";
-import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
-import { useState } from "react";
 
-const AdvancedTicTacToe = () => {
-  const arr = [];
-  arr.length = 9;
-  arr.fill("");
-
-  const [stageArr, setStageArr] = useState(arr);
+const AdvancedTicTacToe = ({ stage, setStage, piece, setTurn }) => {
+  const changeStage = (id) => {
+    let newArr = [...stage];
+    newArr[id] = { text: <FiCircle />, textClass: piece, disabled: false };
+    setTurn((pre) => !pre);
+    setStage(newArr);
+  };
 
   return (
     <div className="">
-      {stageArr.map((n, idx) => (
+      {stage.map((item, idx) => (
         <span key={idx}>
           <MyBtn
-            text="1"
-            textClass=""
+            text={item.text}
+            textClass={item.textClass}
+            disabled={item.disabled}
             btnClass="my_w_100px my_h_100px bg-white"
             key={idx}
-            doClick={() => console.log(idx)}
+            doClick={() => changeStage(idx)}
           />
           {idx % 3 === 2 && <br />}
         </span>
