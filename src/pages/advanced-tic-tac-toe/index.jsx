@@ -6,19 +6,12 @@ import { useState, useRef } from "react";
 const AdvancedTicTacToe = () => {
   let initArr = [];
   initArr.length = 9;
-  initArr.fill({ text: "", textClass: "", disabled: true });
-  // initArr.fill({state:0,color:"invisible"});
-  /*
-  預計改成=> 0未放棋子(textClass不顯示文字)
-  1放小的(textClass空);
-  2放中的(textClass:my_fs_200);
-  3放大的(textClass:my_fs_300)
-  */
+  initArr.fill({ state: 0, color: "invisible" });
 
   const [stage, setStage] = useState(initArr);
-  const piece = useRef("");
-  // const piece = useRef(-1);
+  const piece = useRef(-1);
   const [turn, setTurn] = useState(true);
+
   return (
     <div className="container d-flex flex-column justify-content-between align-items-center mt-1">
       <div className="position-fixed fixed-top">
@@ -29,9 +22,9 @@ const AdvancedTicTacToe = () => {
         piece={piece}
         stage={stage}
         setStage={setStage}
-        textClass="text-primary"
       />
       <Stage
+        turn={turn}
         piece={piece}
         setTurn={setTurn}
         stage={stage}
@@ -43,7 +36,6 @@ const AdvancedTicTacToe = () => {
         stage={stage}
         setStage={setStage}
         btnClass="btn-warning"
-        textClass="text-warning"
       />
     </div>
   );
