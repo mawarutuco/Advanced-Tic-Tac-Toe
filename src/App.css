@@ -14,14 +14,23 @@
   font-size: 200%;
 }
 
-.my_fs_300 {
+/* 棋子大小 */
+.piece3 {
   font-size: 300%;
 }
 
-.my_fs_400 {
-  font-size: 400%;
+.piece2 {
+  font-size: 200%;
 }
 
+.piece1 {
+  font-size: 100%;
+}
+
+.piece0 {
+  display: none;
+}
+/* 棋子大小 */
 
 .my_lh_8 {
   line-height: 8;
