@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 const AdvancedTicTacToe = () => {
   let initArr = [];
   initArr.length = 9;
-  initArr.fill({ state: 0, color: "invisible" });
+  initArr.fill({ state: 0, color: "invisible", disabled: true });
 
   const [stage, setStage] = useState(initArr);
   const piece = useRef(-1);
@@ -17,12 +17,7 @@ const AdvancedTicTacToe = () => {
       <div className="position-fixed fixed-top">
         <HomeBtn />
       </div>
-      <GameBtns
-        turn={!turn}
-        piece={piece}
-        stage={stage}
-        setStage={setStage}
-      />
+      <GameBtns turn={!turn} piece={piece} stage={stage} setStage={setStage} />
       <Stage
         turn={turn}
         piece={piece}
