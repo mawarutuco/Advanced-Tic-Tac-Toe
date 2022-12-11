@@ -9,6 +9,18 @@ const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
     { state: 3, qty: 3 },
   ];
 
+  const PieceStr = (qty) => (
+    <div>
+      <FiCircle />
+      <span
+        className="fs-3 position-absolute"
+        style={{ top: "15%", right: "15%" }}
+      >
+        {qty}
+      </span>
+    </div>
+  );
+
   const selectPiece = (item) => {
     const { state } = item;
     judgeStage(state);
@@ -18,7 +30,7 @@ const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
     const newStage = stage.map((n) => {
       if (n.state < item) n.disabled = false;
       else n.disabled = true;
-      return n
+      return n;
     });
     setStage(newStage);
   };
@@ -28,7 +40,7 @@ const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
       {gameBtnsArr.map((item, idx) => (
         <MyBtn
           key={idx}
-          text={<FiCircle />}
+          text={PieceStr(item.qty)}
           doClick={() => selectPiece(item)}
           btnClass={btnClass}
           textClass={
