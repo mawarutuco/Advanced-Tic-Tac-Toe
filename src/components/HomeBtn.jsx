@@ -1,16 +1,15 @@
-import { Button } from "react-bootstrap";
+import MyBtn from "./Btn";
 import { useNavigate } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 
-const HomeBtn = ({ btnClass }) => {
+const HomeBtn = () => {
   const navigate = useNavigate();
   return (
-    <Button
-      className={"btn-secondary " + btnClass}
-      onClick={() => navigate("/")}
-    >
-      <AiFillHome />
-    </Button>
+    <MyBtn
+      btnClass="btn-secondary"
+      text={<AiFillHome />}
+      doClick={() => navigate("/")}
+    />
   );
 };
 
