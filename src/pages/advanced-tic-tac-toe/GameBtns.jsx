@@ -1,13 +1,21 @@
 import MyBtn from "../../components/Btn";
 import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
+import { useRef, useEffect } from "react";
 
 const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
-  let gameBtnsArr = [
+  const gameBtnsArr = useRef([
     { state: 1, qty: 3 },
     { state: 2, qty: 3 },
     { state: 3, qty: 3 },
-  ];
+  ]);
+
+  useEffect(() => {
+    gameBtnsArr.current = gameBtnsArr.current.map((item) => {
+      if (item.state === piece.current) item.qty--;
+      return item
+    });
+  }, [stage]);
 
   const PieceStr = (qty) => (
     <div>
@@ -37,7 +45,7 @@ const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
 
   return (
     <ButtonGroup className="w-100">
-      {gameBtnsArr.map((item, idx) => (
+      {gameBtnsArr.current.map((item, idx) => (
         <MyBtn
           key={idx}
           text={PieceStr(item.qty)}
