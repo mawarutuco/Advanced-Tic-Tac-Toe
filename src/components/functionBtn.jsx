@@ -1,8 +1,9 @@
 import MyBtn from "./Btn";
 import { useNavigate } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
+import { GiPauseButton } from "react-icons/gi";
 
-const HomeBtn = () => {
+export const HomeBtn = () => {
   const navigate = useNavigate();
   return (
     <MyBtn
@@ -13,4 +14,8 @@ const HomeBtn = () => {
   );
 };
 
-export default HomeBtn;
+
+export const StopBtn = ({ doClick }) => (
+  <MyBtn btnClass="btn-secondary" text={<GiPauseButton />} doClick={doClick} />
+);
+
