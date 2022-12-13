@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import words from "./words";
-import MyAlert from "../../components/Alert";
+import { MyAlert } from "../../components/alert";
 import MyBtn from "../../components/Btn";
 import Timer from "./Timer";
 import GameBtns from "./GameBtns";
@@ -34,11 +34,11 @@ const AliasGame = () => {
   useEffect(() => {
     if (!isPlaying) settingSec.current = sec;
     else if (sec <= 0) {
-      MyAlert.fire(
-        "時間到啦",
-        `共得 ${point.current} 分`,
-        "warning"
-      );
+      MyAlert({
+        title: "時間到啦",
+        text: `共得 ${point.current} 分`,
+        icon: "warning",
+      });
       reset();
     }
   }, [sec]);
@@ -55,15 +55,17 @@ const AliasGame = () => {
         setSec={setSec}
         timer={timer}
       />
-      <div className="border shadow my_fs_200 my_lh_8 text-center text-wrap">{word}</div>
+      <div className="border shadow my_fs_200 my_lh_8 text-center text-wrap">
+        {word}
+      </div>
       <MyBtn
         text={`分數：${point.current}`}
         btnClass="btn-light btn-lg"
         doClick={() => {
-          MyAlert.fire(
-            "上局已猜過單字：",
-            `${pointWords.current.join("\n")}`
-          );
+          MyAlert({
+            title: "上局已猜過單字：",
+            text: `${pointWords.current.join("\n")}`,
+          });
         }}
         disabled={isPlaying}
       />
