@@ -1,11 +1,10 @@
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 
-const MyAlert = Swal.mixin({
-  customClass: {
-    confirmButton: "btn btn-primary",
-    cancelButton: "btn btn-secondary",
-  },
-  buttonsStyling: false,
-});
-
-export default MyAlert;
+export const MyAlert = (obj) =>
+  Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-primary",
+      cancelButton: "btn btn-secondary",
+    },
+    buttonsStyling: false,
+  }).fire({ ...obj, allowOutsideClick: false });
