@@ -11,7 +11,7 @@ const AdvancedTicTacToe = () => {
 
   const [stage, setStage] = useState(stageInit);
   const piece = useRef(-1);
-  const [turn, setTurn] = useState(true);
+  const [blueTurn, setTurn] = useState(true);
 
   const reset = () => {
     setStage(stageInit);
@@ -39,20 +39,21 @@ const AdvancedTicTacToe = () => {
         <StopBtn doClick={() => gameAlert("遊戲暫停")} />
       </div>
       <GameBtns
-        turn={!turn}
+        blueTurn={!blueTurn}
         piece={piece}
         stage={stage}
         setStage={setStage}
+        btnClass="btn-primary"
       />
       <Stage
-        turn={turn}
+        blueTurn={blueTurn}
         piece={piece}
         setTurn={setTurn}
         stage={stage}
         setStage={setStage}
       />
       <GameBtns
-        turn={turn}
+        blueTurn={blueTurn}
         piece={piece}
         stage={stage}
         setStage={setStage}

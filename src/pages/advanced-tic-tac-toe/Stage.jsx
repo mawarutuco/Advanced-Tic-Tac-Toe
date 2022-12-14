@@ -2,7 +2,7 @@ import MyBtn from "../../components/Btn";
 import { FiCircle } from "react-icons/fi";
 
 const AdvancedTicTacToe = ({
-  turn,
+  blueTurn,
   stage,
   setStage,
   piece,
@@ -15,7 +15,7 @@ const AdvancedTicTacToe = ({
     });
     newArr[id] = {
       state: piece.current,
-      color: turn ? "text-primary" : "text-warning",
+      color: blueTurn ? "text-primary" : "text-warning",
       disabled: true,
     };
     piece.current = -1;

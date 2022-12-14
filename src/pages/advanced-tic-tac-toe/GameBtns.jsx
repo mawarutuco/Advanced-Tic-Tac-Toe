@@ -3,7 +3,7 @@ import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
 import { useRef, useEffect } from "react";
 
-const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
+const AdvancedTicTacToe = ({ blueTurn, piece, stage, setStage, btnClass }) => {
   const gameBtnsArr = useRef([
     { state: 1, qty: 3 },
     { state: 2, qty: 3 },
@@ -13,12 +13,12 @@ const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
   useEffect(() => {
     gameBtnsArr.current = gameBtnsArr.current.map((item) => {
       if (item.state === piece.current) item.qty--;
-      return item
+      return item;
     });
   }, [stage]);
 
   const PieceStr = (qty) => (
-    <div>
+    <div style={{ rotate: blueTurn ? "" : "180deg" }}>
       <FiCircle />
       <span
         className="fs-3 position-absolute"
@@ -54,7 +54,7 @@ const AdvancedTicTacToe = ({ turn, piece, stage, setStage, btnClass }) => {
           textClass={
             item.state > 2 ? "piece3" : item.state > 1 ? "piece2" : "piece1"
           }
-          disabled={turn && item.qty > 0}
+          disabled={blueTurn && item.qty > 0}
         />
       ))}
     </ButtonGroup>
