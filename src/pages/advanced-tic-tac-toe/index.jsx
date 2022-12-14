@@ -5,16 +5,16 @@ import { useState, useRef, useEffect } from "react";
 import { MyAlert } from "../../components/alert";
 
 const AdvancedTicTacToe = () => {
-  let initArr = [];
-  initArr.length = 9;
-  initArr.fill({ state: 0, color: "invisible", disabled: true });
+  let stageInit = [];
+  stageInit.length = 9;
+  stageInit.fill({ state: 0, color: "invisible", disabled: true });
 
-  const [stage, setStage] = useState(initArr);
+  const [stage, setStage] = useState(stageInit);
   const piece = useRef(-1);
   const [turn, setTurn] = useState(true);
 
   const reset = () => {
-    setStage(initArr);
+    setStage(stageInit);
   };
 
   const gameAlert = (text) => {
@@ -38,7 +38,12 @@ const AdvancedTicTacToe = () => {
         <HomeBtn />
         <StopBtn doClick={() => gameAlert("遊戲暫停")} />
       </div>
-      <GameBtns turn={!turn} piece={piece} stage={stage} setStage={setStage} />
+      <GameBtns
+        turn={!turn}
+        piece={piece}
+        stage={stage}
+        setStage={setStage}
+      />
       <Stage
         turn={turn}
         piece={piece}
