@@ -16,10 +16,12 @@ const AliasGame = () => {
   const [isGiveUp, setGiveUp] = useState(false);
   const [word, setWord] = useState("╰(*°▽°*)╯");
 
-  const startTimer = () =>
-    (timer = setInterval(function () {
+  const startTimer = () => {
+    clearInterval(timer);
+    timer = setInterval(function () {
       setSec((pre) => pre - 1);
-    }, 1000));
+    }, 1000);
+  };
 
   const reset = () => {
     clearInterval(timer);
