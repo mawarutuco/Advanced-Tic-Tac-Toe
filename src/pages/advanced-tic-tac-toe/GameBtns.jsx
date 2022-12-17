@@ -1,24 +1,12 @@
 import MyBtn from "../../components/Btn";
 import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
-import { useRef, useEffect } from "react";
 
-const AdvancedTicTacToe = ({ blueTurn, piece, stage, setStage, btnClass }) => {
-  const gameBtnsArr = useRef([
-    { state: 1, qty: 3 },
-    { state: 2, qty: 3 },
-    { state: 3, qty: 3 },
-  ]);
+const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj, btnClass }) => {
+  const { stage, setStage, piece } = stateObj;
 
-  useEffect(() => {
-    gameBtnsArr.current = gameBtnsArr.current.map((item) => {
-      if (item.state === piece.current) item.qty--;
-      return item;
-    });
-  }, [stage]);
-
-  const PieceStr = (qty) => (
-    <div style={{ rotate: blueTurn ? "" : "180deg" }}>
+  const pieceStr = (qty) => (
+    <div style={{ rotate: btnClass === "btn-primary" && "180deg" }}>
       <FiCircle />
       <span
         className="fs-3 position-absolute"
@@ -34,6 +22,7 @@ const AdvancedTicTacToe = ({ blueTurn, piece, stage, setStage, btnClass }) => {
     judgeStage(state);
     piece.current = state;
   };
+
   const judgeStage = (item) => {
     const newStage = stage.map((n) => {
       if (n.state < item) n.disabled = false;
@@ -43,18 +32,24 @@ const AdvancedTicTacToe = ({ blueTurn, piece, stage, setStage, btnClass }) => {
     setStage(newStage);
   };
 
+  const judgeDisabled = (turn, qty) => {
+    if (qty < 1) return true;
+    if (!turn) return true;
+    return false;
+  };
+
   return (
     <ButtonGroup className="w-100">
-      {gameBtnsArr.current.map((item, idx) => (
+      {gameBtns.map((item, idx) => (
         <MyBtn
           key={idx}
-          text={PieceStr(item.qty)}
+          text={pieceStr(item.qty)}
           doClick={() => selectPiece(item)}
           btnClass={btnClass}
           textClass={
-            item.state > 2 ? "piece3" : item.state > 1 ? "piece2" : "piece1"
+            item.state > 1 ? "piece2" : item.state  ? "piece1" : "piece0"
           }
-          disabled={blueTurn && item.qty > 0}
+          disabled={judgeDisabled(blueTurn, item.qty)}
         />
       ))}
     </ButtonGroup>
