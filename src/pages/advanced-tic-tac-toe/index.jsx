@@ -7,7 +7,7 @@ import { MyAlert } from "../../components/alert";
 const AdvancedTicTacToe = () => {
   let stageInit = Array(9).fill({
     state: -1,
-    color: "invisible",
+    color: "",
     disabled: true,
   });
 
@@ -53,13 +53,57 @@ const AdvancedTicTacToe = () => {
     });
   };
 
+  const judgeRow = (idx) => {
+    let judgeColor = stage[idx].color;
+    if (
+      judgeColor === stage[idx + 1].color &&
+      judgeColor === stage[idx + 2].color
+    )
+      return true;
+    return false;
+  };
+  const judgeCol = (idx) => {
+    let judgeColor = stage[idx].color;
+    if (
+      judgeColor === stage[idx + 3].color &&
+      judgeColor === stage[idx + 6].color
+    )
+      return true;
+    return false;
+  };
+  const judgeSlash = (idx) => {
+    let judgeColor = stage[idx].color;
+    if (judgeColor === stage[4].color) {
+      if (idx === 0 && judgeColor === stage[8].color) return true;
+      if (idx === 2 && judgeColor === stage[6].color) return true;
+    }
+    return false;
+  };
+
+  const judgeWinner = () => {
+    if (stage[0].color) {
+      if (judgeRow(0)) return [true, stage[0].color];
+      if (judgeCol(0)) return [true, stage[0].color];
+      if (judgeSlash(0)) return [true, stage[0].color];
+    }
+    if (stage[2].color) {
+      if (judgeCol(2)) return [true, stage[2].color];
+      if (judgeSlash(2)) return [true, stage[2].color];
+    }
+    if (stage[3].color) if (judgeRow(3)) return [true, stage[3].color];
+    if (stage[6].color) if (judgeRow(6)) return [true, stage[6].color];
+    if (stage[1].color) if (judgeCol(1)) return [true, stage[1].color];
+    return [false, ""];
+  };
+
   useEffect(() => {
-    
+    const [win, color] = judgeWinner();
+    if (win) gameAlert(`${color === "text-primary" ? "藍方" : "黃方"}勝利!`);
     if (stage.every((n) => n.state > -1)) gameAlert("平手");
   }, [stage]);
 
   return (
-    <div className="container d-flex flex-column justify-content-between align-items-center mt-1">
+    <div className="container d-flex flex-column justify-content-between align-items-center mt-1 show-move-up">
       <div className="position-absolute" style={{ top: "20%" }}>
         <HomeBtn />
         <StopBtn doClick={() => gameAlert("遊戲暫停")} />

@@ -5,7 +5,7 @@ const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj }) => {
   const { stage, setStage, piece, setTurn } = stateObj;
 
   const changeStage = (id) => {
-    let newArr = stage.map((n, idx) => {
+    let newArr = stage.map((n) => {
       n.disabled = true;
       return n;
     });
