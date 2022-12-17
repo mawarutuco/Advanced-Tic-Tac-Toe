@@ -15,21 +15,22 @@
 }
 
 /* 棋子大小 */
-.piece3 {
+.piece2 {
   font-size: 300%;
 }
 
-.piece2 {
+.piece1 {
   font-size: 200%;
 }
 
-.piece1 {
+.piece0 {
   font-size: 100%;
 }
 
-.piece0 {
+.piece-1 {
   display: none;
 }
+
 /* 棋子大小 */
 
 .my_lh_8 {
