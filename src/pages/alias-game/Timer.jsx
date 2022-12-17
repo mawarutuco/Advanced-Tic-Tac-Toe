@@ -1,10 +1,6 @@
-import swalWithBootstrapButtons from "../../components/Alert";
-import MyBtn from "../../components/Btn";
 import MyInputGroup from "../../components/InputGroup";
-import HomeBtn from "../../components/HomeBtn";
-import { useNavigate } from "react-router-dom";
-import { GiPauseButton } from "react-icons/gi";
-import { AiFillHome } from "react-icons/ai";
+import { MyAlert } from "../../components/alert";
+import { HomeBtn, StopBtn } from "../../components/functionBtn";
 
 const Timer = ({
   reset,
@@ -18,21 +14,18 @@ const Timer = ({
 }) => {
   const stopGame = () => {
     clearInterval(timer);
-    swalWithBootstrapButtons
-      .fire({
-        title: "暫停中",
-        text: `目前得 ${point.current} 分`,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "繼續遊戲",
-        cancelButtonText: "提早結束",
-      })
-      .then((result) => {
-        if (result.isConfirmed) startTimer();
-        else reset();
-      });
+    MyAlert({
+      title: "暫停中",
+      text: `目前得 ${point.current} 分`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "提早結束",
+      cancelButtonText: "繼續遊戲",
+    }).then((result) => {
+      if (result.isConfirmed) reset();
+      else startTimer();
+    });
   };
-  const navigate = useNavigate();
 
   return (
     <div className="mt-3">
@@ -47,11 +40,7 @@ const Timer = ({
           >
             {sec}
           </div>
-          <MyBtn
-            btnClass="btn-secondary"
-            text={<GiPauseButton />}
-            doClick={stopGame}
-          />
+          <StopBtn doClick={stopGame} />
         </div>
       ) : (
         <MyInputGroup
