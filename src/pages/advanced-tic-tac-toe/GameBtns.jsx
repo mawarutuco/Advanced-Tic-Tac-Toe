@@ -9,7 +9,7 @@ const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj, btnClass }) => {
     <div style={{ rotate: btnClass === "btn-primary" && "180deg" }}>
       <FiCircle />
       <span
-        className="fs-3 position-absolute"
+        className="fs-3 position-absolute "
         style={{ top: "15%", right: "15%" }}
       >
         {qty}
@@ -23,9 +23,9 @@ const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj, btnClass }) => {
     piece.current = state;
   };
 
-  const judgeStage = (item) => {
+  const judgeStage = (selectPieceState) => {
     const newStage = stage.map((n) => {
-      if (n.state < item) n.disabled = false;
+      if (n.state < selectPieceState) n.disabled = false;
       else n.disabled = true;
       return n;
     });
@@ -47,7 +47,7 @@ const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj, btnClass }) => {
           doClick={() => selectPiece(item)}
           btnClass={btnClass}
           textClass={
-            item.state > 1 ? "piece2" : item.state  ? "piece1" : "piece0"
+            item.state > 1 ? "piece2" : item.state ? "piece1" : "piece0"
           }
           disabled={judgeDisabled(blueTurn, item.qty)}
         />
