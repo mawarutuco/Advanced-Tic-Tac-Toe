@@ -1,6 +1,7 @@
-import { HomeBtn, StopBtn } from "../../components/functionBtn";
+import { HomeBtn, StopBtn, QuestionBtn } from "../../components/functionBtn";
 import GameBtns from "./GameBtns";
 import Stage from "./Stage";
+import { ButtonGroup } from "react-bootstrap";
 import { useState, useRef, useEffect } from "react";
 import { MyAlert } from "../../components/alert";
 
@@ -99,15 +100,16 @@ const AdvancedTicTacToe = () => {
   useEffect(() => {
     const [win, color] = judgeWinner();
     if (win) gameAlert(`${color === "text-primary" ? "藍方" : "黃方"}勝利!`);
-    if (stage.every((n) => n.state > -1)) gameAlert("平手");
+    // if (stage.every((n) => n.state > 0)) gameAlert("平手");
   }, [stage]);
 
   return (
-    <div className="container d-flex flex-column justify-content-between align-items-center mt-1 show-move-up">
-      <div className="position-absolute" style={{ top: "20%" }}>
+    <div className="container d-flex flex-column justify-content-between align-items-center mt-1 my_show_move_up">
+      <ButtonGroup className="position-absolute" style={{ top: "20%" }}>
         <HomeBtn />
         <StopBtn doClick={() => gameAlert("遊戲暫停")} />
-      </div>
+        <QuestionBtn />
+      </ButtonGroup>
       <GameBtns
         gameBtns={gameBtns.current.blue}
         blueTurn={blueTurn}
