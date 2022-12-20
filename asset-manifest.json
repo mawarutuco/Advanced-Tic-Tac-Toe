@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tabletop-game/static/css/main.6bfad0b0.css",
+    "main.css": "/tabletop-game/static/css/main.d20963db.css",
     "main.js": "/tabletop-game/static/js/main.3ee0689b.js",
     "static/js/787.6a541d2d.chunk.js": "/tabletop-game/static/js/787.6a541d2d.chunk.js",
     "index.html": "/tabletop-game/index.html",
-    "main.6bfad0b0.css.map": "/tabletop-game/static/css/main.6bfad0b0.css.map",
+    "main.d20963db.css.map": "/tabletop-game/static/css/main.d20963db.css.map",
     "main.3ee0689b.js.map": "/tabletop-game/static/js/main.3ee0689b.js.map",
     "787.6a541d2d.chunk.js.map": "/tabletop-game/static/js/787.6a541d2d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6bfad0b0.css",
+    "static/css/main.d20963db.css",
     "static/js/main.3ee0689b.js"
   ]
 }
