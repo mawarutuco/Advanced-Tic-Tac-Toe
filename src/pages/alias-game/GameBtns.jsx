@@ -47,7 +47,7 @@ const Buttons = ({
           <MyBtn
             text="棄牌"
             textClass="my_lh_6 my_fs_200"
-            btnClass="w-100 my_click_btn btn-danger"
+            btnClass="w-100 my_click_btn btn-warning"
             doClick={giveUpCard}
             disabled={isGiveUp}
           />
