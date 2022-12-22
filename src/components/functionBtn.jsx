@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { FaQuestion } from "react-icons/fa";
 import { GiPauseButton } from "react-icons/gi";
+import { GrFormPrevious } from "react-icons/gr";
 
 const btnColor = "btn-secondary";
 
@@ -41,7 +42,18 @@ export const QuestionBtn = () => {
     <MyBtn
       btnClass={btnColor}
       text={<FaQuestion />}
-      doClick={() => navigate("")}
+      doClick={() => navigate("instruction")}
+    />
+  );
+};
+
+export const PreviousPage = () => {
+  const navigate = useNavigate();
+  return (
+    <MyBtn
+      btnClass={btnColor}
+      text={<GrFormPrevious />}
+      doClick={() => navigate(-1)}
     />
   );
 };
