@@ -15,6 +15,7 @@
 }
 
 /* 棋子大小 */
+
 .piece2 {
   font-size: 300%;
 }
@@ -25,10 +26,6 @@
 
 .piece0 {
   font-size: 100%;
-}
-
-.piece-1 {
-  display: none;
 }
 
 /* 棋子大小 */
