@@ -1,6 +1,6 @@
 import MyInputGroup from "../../components/InputGroup";
 import { MyAlert } from "../../components/alert";
-import { HomeBtn, StopBtn } from "../../components/functionBtn";
+import { HomeBtn, StopBtn, QuestionBtn } from "../../components/functionBtn";
 
 const Timer = ({
   reset,
@@ -27,6 +27,15 @@ const Timer = ({
     });
   };
 
+  const Btns = () => {
+    return (
+      <>
+        <QuestionBtn />
+        <HomeBtn />
+      </>
+    );
+  };
+
   return (
     <div className="mt-3">
       {isPlaying ? (
@@ -48,7 +57,7 @@ const Timer = ({
           onChange={(e) => setSec(e.target.value)}
           frontText="倒數計時"
           behindText="秒鐘"
-          btnComponent={<HomeBtn />}
+          btnComponent={<Btns />}
         />
       )}
     </div>
