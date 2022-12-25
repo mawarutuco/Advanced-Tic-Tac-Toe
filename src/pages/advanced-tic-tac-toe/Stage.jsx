@@ -1,5 +1,6 @@
 import MyBtn from "../../components/Btn";
 import { FiCircle } from "react-icons/fi";
+import { theme1, theme2 } from "./method";
 
 const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj }) => {
   const { stage, setStage, piece, setTurn } = stateObj;
@@ -9,12 +10,13 @@ const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj }) => {
       n.disabled = true;
       return n;
     });
+    let colorTheme = blueTurn ? theme1 : theme2;
     newArr[id] = {
       state: piece.current,
-      color: `text-${blueTurn ? "primary" : "warning"}`,
+      color: `text-${colorTheme}`,
       disabled: true,
     };
-    gameBtns.current[blueTurn ? "blue" : "yellow"][piece.current].qty--;
+    gameBtns.current[colorTheme][piece.current].qty--;
     piece.current = -2;
     setTurn((pre) => !pre);
     setStage(newArr);

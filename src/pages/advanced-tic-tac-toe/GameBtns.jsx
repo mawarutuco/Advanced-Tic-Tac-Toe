@@ -1,12 +1,13 @@
 import MyBtn from "../../components/Btn";
 import { ButtonGroup } from "react-bootstrap";
 import { FiCircle } from "react-icons/fi";
+import { judgeDisabled, theme1 } from "./method";
 
 const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj, btnClass }) => {
   const { stage, setStage, piece } = stateObj;
 
   const pieceStr = (qty) => (
-    <div style={{ rotate: btnClass === "btn-primary" && "180deg" }}>
+    <div style={{ rotate: btnClass.indexOf(theme1) > -1 && "180deg" }}>
       <FiCircle />
       <span
         className="fs-3 position-absolute "
@@ -30,12 +31,6 @@ const AdvancedTicTacToe = ({ gameBtns, blueTurn, stateObj, btnClass }) => {
       return n;
     });
     setStage(newStage);
-  };
-
-  const judgeDisabled = (turn, qty) => {
-    if (qty < 1) return true;
-    if (!turn) return true;
-    return false;
   };
 
   return (
