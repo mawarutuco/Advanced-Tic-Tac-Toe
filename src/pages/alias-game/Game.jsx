@@ -11,10 +11,11 @@ const AliasGame = () => {
   const settingSec = useRef(10);
   const point = useRef(0);
   const pointWords = useRef([]);
+  const initFace = "╰(*°▽°*)╯";
   const [sec, setSec] = useState(settingSec.current);
   const [isPlaying, setPlaying] = useState(false);
   const [isGiveUp, setGiveUp] = useState(false);
-  const [word, setWord] = useState("╰(*°▽°*)╯");
+  const [word, setWord] = useState(initFace);
 
   const startTimer = () => {
     clearInterval(timer);
@@ -27,7 +28,7 @@ const AliasGame = () => {
     clearInterval(timer);
     setPlaying(false);
     setGiveUp(false);
-    setWord("╰(*°▽°*)╯");
+    setWord(initFace);
     setSec(settingSec.current);
   };
 
@@ -66,7 +67,7 @@ const AliasGame = () => {
         doClick={() => {
           MyAlert({
             title: "上局已猜過單字：",
-            text: `${pointWords.current.join("\n")}`,
+           text: `${pointWords.current.join("\n")}`,
           });
         }}
         disabled={isPlaying}
